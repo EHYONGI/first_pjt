@@ -70,3 +70,18 @@ def posts(request):
     }
 
     return render(request, 'posts.html', context)
+
+def ping(request):
+    return render(request, 'ping.html')
+
+def pong(request):
+    # request.GET['title']
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+
+    context = {
+        'title': title,
+        'content': content,
+    }
+
+    return render(request, 'pong.html', context)
